@@ -1,6 +1,9 @@
 package com.angadgosain.firstjobapplication.job;
 
+import org.springframework.lang.NonNull;
+
 public class Job {
+
     private Long id;
     private String title;
     private String description;
