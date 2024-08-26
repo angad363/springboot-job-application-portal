@@ -1,6 +1,7 @@
 package com.angadgosain.firstjobapplication.company;
 
 import com.angadgosain.firstjobapplication.job.Job;
+import com.angadgosain.firstjobapplication.review.Review;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
@@ -19,9 +20,19 @@ public class Company {
     @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Job> jobs;
 
-    //private List<Review> reviews;
+    @JsonIgnore
+    @OneToMany(mappedBy = "company", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Review> reviews;
 
     public Company() {
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 
     public Company(Long id, String name, String description, List<Job> jobs) {
